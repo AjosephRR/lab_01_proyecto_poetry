@@ -1,0 +1,26 @@
+[project]
+name = "lab-01-proyecto-poetry"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "AjosephRR",email = "angel.rivera@axity.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+]
+
+[tool.poetry]
+packages = [{include = "lab_01_proyecto_poetry", from = "src"}]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "black (>=26.3.1,<27.0.0)",
+    "isort (>=8.0.1,<9.0.0)",
+    "ruff (>=0.15.6,<0.16.0)",
+    "pre-commit (>=4.5.1,<5.0.0)"
+]
