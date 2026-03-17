@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "python-onboarding"
+version = "0.1.0"
+description = "Repositorio de capacitacion de Python organizado por modulos y laboratorios"
+authors = ["Joseph Rivera"]
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.8.0"
+isort = "^5.13.2"
+ruff = "^0.6.9"
+pre-commit = "^3.8.0"
+
+[tool.black]
+line-length = 88
+target-version = ["py312"]
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
