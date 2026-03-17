@@ -1,8 +1,3 @@
-`fundamental/02-fundamentos-lenguaje/notas.md`
-
-```md
-# Notas del módulo 02 - Fundamentos del lenguaje
-
 ## Temas vistos
 - Sintaxis e indentación en Python
 - Variables y alcance
