@@ -1,0 +1,30 @@
+[
+    {
+        "nombre": "Ana",
+        "edad": 24,
+        "ciudad": "CDMX",
+        "activo": true,
+        "correo": "ana@email.com" 
+    },
+    {
+        "nombre": "Joseph",
+        "edad": 29,
+        "ciudad": "Guadalajara",
+        "activo": false,
+        "correo": "joseph@email.com"
+    },
+    {
+        "nombre": "Maria",
+        "edad": 31,
+        "ciudad": "CDMX",
+        "activo": true,
+        "correo": "maria@email.com"
+    },
+    {
+        "nombre": "Carlos",
+        "edad": 45,
+        "ciudad": "Monterrey",
+        "activo": false,
+        "correo": "carlos@email.com"
+    }
+]
