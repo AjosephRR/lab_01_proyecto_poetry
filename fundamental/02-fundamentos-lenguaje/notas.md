@@ -38,3 +38,14 @@ En este laboratorio se construyó un script que:
 
 ## Evidencia
 - Laboratorio completado en `lab_02/`
+
+## Prueba de manejo de errores
+Se renombró temporalmente el archivo `usuarios.json` para validar el manejo de error por archivo inexistente.
+
+### Resultado
+El programa mostró el mensaje:
+- "Error: no se encontró el archivo ..."
+- "No fue posible procesar usuarios."
+
+### Conclusión
+El bloque `try-except` funcionó correctamente al capturar `FileNotFoundError` sin detener abruptamente la ejecución.
