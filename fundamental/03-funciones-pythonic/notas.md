@@ -34,7 +34,3 @@ En este laboratorio se implementó:
 - Se presentó un error tipográfico al escribir `time.pref_counter()` en lugar de `time.perf_counter()`. Se corrigió usando el nombre correcto de la función.
 - También se ajustaron varios textos de salida en consola para mejorar consistencia y claridad.
 
-## Evidencia
-- Laboratorio completado en `lab_03/`
-- Script ejecutado correctamente desde:
-  `python .\src\main.py`

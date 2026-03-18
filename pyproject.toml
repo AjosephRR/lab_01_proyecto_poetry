@@ -14,6 +14,7 @@ black = "^24.8.0"
 isort = "^5.13.2"
 ruff = "^0.6.9"
 pre-commit = "^3.8.0"
+mypy = "^1.19.1"
 
 [tool.black]
 line-length = 88
@@ -29,3 +30,12 @@ target-version = "py312"
 
 [tool.ruff.lint]
 select = ["E", "F", "I"]
+
+[tool.mypy]
+python_version = "3.12"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+check_untyped_defs = true
+no_implicit_optional = true
+pretty = true

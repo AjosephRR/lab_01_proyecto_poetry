@@ -44,9 +44,3 @@ El programa demuestra distintos elementos del estilo pythonic:
 6. Divide una lista de usuarios en lotes con un generador.
 7. Simula una operación inestable y le aplica un decorador de reintentos con backoff.
 8. Mide el tiempo de ejecución de un bloque usando un context manager.
-
-## Cómo ejecutarlo
-Ubícate en la carpeta del laboratorio y ejecuta:
-
-```powershell
-python .\src\main.py

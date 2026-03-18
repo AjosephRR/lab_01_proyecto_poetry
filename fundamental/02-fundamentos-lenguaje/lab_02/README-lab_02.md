@@ -23,8 +23,3 @@ Este laboratorio practica los fundamentos del lenguaje en Python mediante un scr
 - `data/usuarios.json`: datos de entrada
 - `src/main.py`: script principal del laboratorio
 
-## Cómo ejecutarlo
-Ubicarse en la carpeta del laboratorio y correr:
-
-```powershell
-python .\src\main.py
