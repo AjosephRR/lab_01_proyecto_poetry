@@ -1,0 +1,11 @@
+{
+    "fecha_reporte": "2026-03-20 14:39:35",
+    "total_registros": 5,
+    "monto_total": 20700.0,
+    "producto_mas_veniddo": "Mouse",
+    "ventas_por:categoria": {
+        "Perifericos": 1200.0,
+        "Pantallas": 7500.0,
+        "Computo": 12000.0
+    }
+}
