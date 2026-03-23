@@ -9,6 +9,9 @@ package-mode = false
 python = "^3.12"
 pydantic = "^2.12.5"
 tzdata = "^2025.3"
+httpx = {extras = ["http2"], version = "^0.28.1"}
+fastapi = "^0.135.2"
+uvicorn = "^0.42.0"
 
 [tool.poetry.group.dev.dependencies]
 black = "^24.8.0"
