@@ -1,0 +1,117 @@
+import pytest
+from sqlalchemy import create_engine
+from sqlalchemy.orm import Session, sessionmaker
+from sqlalchemy.pool import StaticPool
+
+from app.crud import (
+    create_order,
+    create_user,
+    delete_order,
+    get_user_with_orders,
+    list_orders,
+    update_order_status,
+)
+from app.db import Base
+
+
+@pytest.fixture
+def session() -> Session:
+    engine = create_engine(
+        "sqlite+pysqlite:///:memory:",
+        connect_args={"check_same_thread": False},
+        poolclass=StaticPool,
+    )
+    TestingSessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
+
+    Base.metadata.create_all(bind=engine)
+
+    with TestingSessionLocal() as session:
+        yield session
+
+    Base.metadata.drop_all(bind=engine)
+
+
+def test_create_user(session: Session) -> None:
+    user = create_user(session, "Joseph", "joseph@test.com")
+
+    assert user is not None
+    assert user.id is not None
+    assert user.email == "joseph@test.com"
+
+
+def test_create_user_duplicate_email_returns_none(session: Session) -> None:
+    first_user = create_user(session, "Joseph", "duplicate@test.com")
+    second_user = create_user(session, "Otro", "duplicate@test.com")
+
+    assert first_user is not None
+    assert second_user is None
+
+
+def test_create_order_with_items(session: Session) -> None:
+    user = create_user(session, "Joseph", "order@test.com")
+    assert user is not None
+
+    order = create_order(
+        session=session,
+        user_id=user.id,
+        items=[
+            {"product_name": "Laptop", "quantity": 1, "unit_price": 15000.0},
+            {"product_name": "Base enfriadora", "quantity": 1, "unit_price": 800.0},
+        ],
+    )
+
+    assert order is not None
+    assert len(order.items) == 2
+    assert order.total == 15800.0
+
+
+def test_get_user_with_orders(session: Session) -> None:
+    user = create_user(session, "Joseph", "relations@test.com")
+    assert user is not None
+
+    create_order(
+        session=session,
+        user_id=user.id,
+        items=[{"product_name": "Mouse", "quantity": 2, "unit_price": 300.0}],
+    )
+
+    loaded_user = get_user_with_orders(session, user.id)
+
+    assert loaded_user is not None
+    assert len(loaded_user.orders) == 1
+    assert len(loaded_user.orders[0].items) == 1
+
+
+def test_update_order_status(session: Session) -> None:
+    user = create_user(session, "Joseph", "status@test.com")
+    assert user is not None
+
+    order = create_order(
+        session=session,
+        user_id=user.id,
+        items=[{"product_name": "Monitor", "quantity": 1, "unit_price": 4000.0}],
+    )
+    assert order is not None
+
+    updated_order = update_order_status(session, order.id, "shipped")
+
+    assert updated_order is not None
+    assert updated_order.status == "shipped"
+
+
+def test_delete_order(session: Session) -> None:
+    user = create_user(session, "Joseph", "delete@test.com")
+    assert user is not None
+
+    order = create_order(
+        session=session,
+        user_id=user.id,
+        items=[{"product_name": "SSD", "quantity": 1, "unit_price": 1200.0}],
+    )
+    assert order is not None
+
+    deleted = delete_order(session, order.id)
+    orders = list_orders(session)
+
+    assert deleted is True
+    assert len(orders) == 0

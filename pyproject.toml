@@ -12,6 +12,8 @@ tzdata = "^2025.3"
 httpx = {extras = ["http2"], version = "^0.28.1"}
 fastapi = "^0.135.2"
 uvicorn = "^0.42.0"
+sqlalchemy = "^2.0.48"
+alembic = "^1.18.4"
 
 [tool.poetry.group.dev.dependencies]
 black = "^24.8.0"
@@ -19,6 +21,7 @@ isort = "^5.13.2"
 ruff = "^0.6.9"
 pre-commit = "^3.8.0"
 mypy = "^1.19.1"
+pytest = "^9.0.2"
 
 [tool.black]
 line-length = 88
@@ -27,13 +30,18 @@ target-version = ["py312"]
 [tool.isort]
 profile = "black"
 line_length = 88
+known_first_party = ["app"]
+src_paths = ["intermedio/01-acceso-datos-orm/lab_01"]
 
 [tool.ruff]
 line-length = 88
 target-version = "py312"
 
 [tool.ruff.lint]
-select = ["E", "F", "I"]
+select = ["E", "F"]
+
+[tool.ruff.lint.per-file-ignores]
+"**/migrations/env.py" = ["E402"]
 
 [tool.mypy]
 python_version = "3.12"
