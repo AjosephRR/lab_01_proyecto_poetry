@@ -1,0 +1,4 @@
+# file: C:\Users\Angel.Rivera\Documents\GitHub\python-onboarding\intermedio\03-pruebas-tdd\lab_03\app\models.py
+# hypothesis_version: 6.151.9
+
+['confirmed', 'draft', 'paid']
