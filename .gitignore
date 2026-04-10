@@ -1,13 +1,11 @@
-__pycache__/
-*.pyc
+# Python / Poetry
 .venv/
-.env
-.poetry/
+.poetry-cache/
 dist/
 build/
+*.whl
 *.egg-info/
-.vscode/
-.ruff_cache/
-.coverage
-htmlcov/
+__pycache__/
 .pytest_cache/
+.mypy_cache/
+.ruff_cache/
