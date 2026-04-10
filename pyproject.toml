@@ -3,7 +3,7 @@ name = "python-onboarding"
 version = "0.1.0"
 description = "Repositorio de capacitacion de Python organizado por modulos y laboratorios"
 authors = ["Joseph Rivera"]
-package-mode = false
+packages = [{ include = "lab_orders_cli", from = "src" }]
 
 [tool.poetry.dependencies]
 python = "^3.12"
@@ -22,6 +22,7 @@ numpy = "^2.4.4"
 polars = "^1.39.3"
 scikit-learn = "^1.8.0"
 joblib = "^1.5.3"
+typer = "^0.16.0"
 
 [tool.poetry.group.dev.dependencies]
 black = "^24.8.0"
@@ -30,7 +31,6 @@ ruff = "^0.6.9"
 pre-commit = "^3.8.0"
 mypy = "^1.19.1"
 pytest = "^9.0.2"
-httpx = "^0.28.1"
 anyio = "^4.13.0"
 hypothesis = "^6.151.9"
 pytest-cov = "^7.1.0"
@@ -42,8 +42,12 @@ target-version = ["py312"]
 [tool.isort]
 profile = "black"
 line_length = 88
-known_first_party = ["app"]
-src_paths = ["intermedio/01-acceso-datos-orm/lab_01"]
+known_first_party = ["app", "lab_orders_cli", "orders_packaged_api"]
+src_paths = [
+    "src",
+    "avanzado/02-empaquetado-distribucion-cicd/lab_orders_packaging_cicd/src",
+    "intermedio/01-acceso-datos-orm/lab_01",
+]
 
 [tool.ruff]
 line-length = 88
@@ -63,3 +67,6 @@ disallow_untyped_defs = true
 check_untyped_defs = true
 no_implicit_optional = true
 pretty = true
+
+[tool.poetry.scripts]
+orders-cli = "lab_orders_cli.main:app"

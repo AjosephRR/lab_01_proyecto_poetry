@@ -1,0 +1,16 @@
+{
+  "order_id": "ORD-001",
+  "customer_email": "demo@example.com",
+  "items": [
+    {
+      "sku": "SKU-001",
+      "quantity": 2,
+      "unit_price": 120.0
+    },
+    {
+      "sku": "SKU-002",
+      "quantity": 1,
+      "unit_price": 80.0
+    }
+  ]
+}
