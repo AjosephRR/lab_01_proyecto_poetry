@@ -1,0 +1,26 @@
+# secretos
+.env
+.env.*
+!.env.example
+
+# entornos y caches
+.venv/
+.poetry-cache/
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# builds
+dist/
+build/
+*.whl
+*.egg-info/
+
+# coverage
+.coverage
+htmlcov/
+
+# sistema
+.DS_Store
+Thumbs.db
